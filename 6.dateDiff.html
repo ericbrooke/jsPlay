@@ -1,0 +1,43 @@
+<html>
+<head>
+		<title>date</title>
+		<script type="text/javascript">
+		<!--
+				
+window.onload=function(){
+		var firstDate = new Date();
+		var secondDate = new Date();
+		var today = new Date();
+		
+		var minutes = 1000 *60;
+		var hours = minutes*60;
+		var days = hours*24;
+		
+		firstDate.setFullYear(2010,8,19);
+		secondDate.setFullYear(2011,7,20);
+		document.write(firstDate + " one" + "<br />");
+		document.write(secondDate + "<br />");	
+		
+		var difference = (secondDate.getTime() - today.getTime()) - (firstDate.getTime() - today.getTime())
+		
+		document.write(difference + "<br />");	
+		
+		document.write(difference/minutes + "<br />");	
+		
+		document.write(difference/days + "<br />");	
+				
+}				
+		// -->
+		</script>
+		
+</head>
+<body>
+
+<noscript> <p>Please enable javascript.</p></noscript>
+
+<p>This is HTML here</p>
+
+
+</body>
+
+</html>

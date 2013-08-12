@@ -1,0 +1,46 @@
+<html>
+<head>
+
+<style>
+		#wrapper {
+					background-color: yellow;
+					max-width: 200px;
+					max-height: 200px;
+		}
+</style>
+<script type="text/javascript" src="plugins/jquery-1.6.4.js"></script>
+<script type="text/javascript" src="plugins/jquery.dotdotdot-1.2.3.js" ></script>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+	
+ 		$("#wrapper").dotdotdot({
+
+		wrapper	: 'div',	//	The element to wrap the content in.
+		ellipsis: '... ',	//	The HTML to add as ellipsis.
+		wrap	: 'word',	//	How to cut off the text/html: 
+								//	'word'/'letter'/'children'
+		after	: ,		//	A jQuery-selector for the element to keep
+								//	and put after the ellipsis.
+		watch	: false,	//	Whether to update the ellipsis:
+								//	true/'window'
+		height	: null		//	Optionally set a max-height,
+								//	if null, the height will be measured.
+	});
+});
+
+</script>
+
+
+</head>
+<body>
+
+<div id="wrapper">
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ...Into this beauty!
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only...</p>
+</div>
+
+
+
+</body>
+</html>

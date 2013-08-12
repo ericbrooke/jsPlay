@@ -1,0 +1,26 @@
+<html>
+<head>
+
+	<style type="text/css">img#d{width:200px;}</style>
+	
+	<script type="text/javascript">
+	
+	window.onload=function(){
+	
+		var im = document.getElementById('c');
+	
+		im.onclick=function(){
+	
+			this.style.left = parseInt(this.style.left) + 10 + "px";
+			this.style.top = parseInt(this.style.top) +10 + "px";
+		}
+	}
+	</script>
+	
+</head>
+<body>
+
+<img id="c" src="images/cat.jpg" style="position:absolute;top:10px;left:320px;">		
+
+</body>
+</html>

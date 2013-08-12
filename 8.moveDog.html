@@ -1,0 +1,51 @@
+<html>
+<head>
+	
+	<script type="text/javascript">
+	
+	//global variables
+	var ebtimer = null;
+	
+	function moveImage(theID){
+			var i = document.getElementById(theID);
+			i.style.left = parseInt(i.style.left) + 1 + "px";	
+
+	}//moveimage		
+			
+	window.onload=function(){
+		
+		//move function
+		document.getElementById('move').onclick=function(){
+		var p = 1000 //one pixel per second = 1000 milliseconds
+			
+		if(ebtimer == null){
+				ebtimer = setInterval('moveImage("IM");', p);
+			} //if
+
+		}// end of move
+		
+		//reset
+		document.getElementById('reset').onclick=function(){
+			clearInterval(ebtimer);
+			ebtimer = null;
+			document.getElementById('IM').style.left = "10px";
+			milli = 1;
+		}//end of reset
+		
+	}//end of onload
+	
+	</script>
+	
+</head>
+<body>
+
+<img id="IM" name="IM" src="images/dog.jpg" style="position:absolute;top:10px;left:10px;">		
+
+<div style="position:absolute;top:400px;">
+	<input type="button" id="move" value="move"/>
+	<input type="button" id="reset" value="reset"/>
+	<br />
+	
+</div>
+</body>
+</html>

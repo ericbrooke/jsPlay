@@ -1,0 +1,82 @@
+<html>
+<head>
+	<script type="text/javascript">
+	
+		window.onload=function(){
+			
+			document.getElementById('formxyz').onsubmit=function(){
+			
+				//username
+				if(document.getElementById('u').value.length <5){
+					alert('username must be more than 5 characters');
+					document.getElementById('u-s').style.backgroundColor = 'yellow';
+					document.getElementById('u').select(); //highlight error text
+					return false;
+				}
+				
+					if(document.getElementById('u').value.length >10){
+					alert('username must be less than 10 characters');
+					document.getElementById('u-s').style.backgroundColor = 'yellow';
+					document.getElementById('u').select(); //highlight error text
+					return false;
+				}
+				
+				
+				//email address
+				
+				var pattern = /^\w+[\+\.\w-]*@([\w-]+\.)*\w+[\w-]*\.([a-z]{2,4}|\d+)$/i;
+				
+				if(pattern.test(document.getElementById("e").value)== false)
+				{
+					alert('please type a valid email');
+					document.getElementById('e-s').style.backgroundColor = 'yellow';
+					document.getElementById('e').select(); //highlight error text
+					return false;
+				}
+
+				//Street
+				
+				var street = document.getElementById('s').value;	
+				
+				var s = parseInt(street);
+				
+				if(street !==""){
+					if (isNaN(s)){
+						alert('Must start with a number');
+						document.getElementById('s-s').style.backgroundColor = 'yellow';
+						document.getElementById('s').select(); //highlight error text
+						return false;
+					}
+				}
+				//Year of birth
+				
+				var possdate = document.getElementById('y').value;
+				
+				if((possdate ==="") || isNaN(possdate)){
+					alert('It helps to type a number for your year of birth');
+					document.getElementById('y-s').style.backgroundColor = 'yellow';
+					document.getElementById('y').select(); //highlight error text
+					return false;
+				}
+				
+
+			}//formxyz
+			
+		}//window end
+		
+		
+	</script>
+	
+</head>
+<body>
+
+<form action="fake.php" id="formxyz">
+	<span id="u-s">Username (5 -10 chars):</span> <input id="u" type="text" /><br />
+	<span id="e-s">Email address:</span> <input id="e" type="text" /><br />
+	<span id="s-s">Street Address:</span> <input id="s" type="text" /><br />
+	<span id="y-s">Year of Birth:</span> <input id="y" type="text" /><br />
+	<input type="submit" />
+</form>
+
+</body
+</html>

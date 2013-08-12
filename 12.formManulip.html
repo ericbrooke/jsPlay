@@ -1,0 +1,41 @@
+<html>
+<head>
+	<script type="text/javascript">
+	
+	window.onload=function(){
+	
+		document.getElementById('h').onclick=function(){
+			window.open (document.getElementById('h').href, 'x', '');
+			return false;
+		}
+		
+		
+		
+		document.getElementById('f').onsumbit=function(){
+			if(document.getElementById('u').value == ""){
+				alert('enter user name');
+				return false;
+			}
+			}
+			
+			if(document.getElementById('u').value.length <3){
+				alert('username must be more than 3 characters');
+				document.getElementById('u').select(); //highlight error text
+				return false;
+			}
+		}
+	}	
+	</script>
+</head>
+<body>
+		<form id="f" action="fake.php">
+		
+		username: <input type="text" id="u"/><br/>
+		password: <input type="text" id="p"/><br/>
+		<input type="submit"/>
+		</form>
+		
+		<a href="http://www.nhl.com" id="h">NHL</a>
+
+</body>
+</html>

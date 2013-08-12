@@ -1,0 +1,30 @@
+<html>
+<head>
+
+<script type="text/javascript" src="plugins/jquery-1.6.4.js"></script>
+<script type="text/javascript" src="plugins/jquery.validate.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+	
+		$('form').validate();
+		
+	});
+</script>
+
+
+</head>
+<body>
+
+<form id="f" action="fakle.php">
+
+url<input type="text" name="a" class="url required"/><br/>
+email<input type="text" name="b" class="email"/><br/>
+date<input type="text" name="c" class="date"/><br/>
+number<input type="text" name="d" class="number"/><br/>
+required<input type="text" name="e" class="required"/><br/>
+<input type="submit" value="submit">
+
+
+</body>
+</html>

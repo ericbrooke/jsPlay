@@ -1,0 +1,47 @@
+<html>
+<head>
+	<script type="text/javascript">
+	
+	window.onload=function(){
+	
+		document.getElementById('h').onclick=function(){
+			window.open (document.getElementById('h').href, 'x', '');
+			return false;
+		}
+		
+		
+		
+		document.getElementById('f').onsumbit=function(){
+			
+			var currentyear = new Date().getFullYear();
+			var yearBorn = document.getElementById('y').value;
+			
+			if(yearborn.length === "") || isNaN(yearBorn){
+				alert(yearBorn +'is not a number');
+				return false;
+			}
+			
+			else{
+				if(yearBorn < 1900){
+					alert('too early');
+					return false;
+				}else if (yearBorn >currentYeaY){
+					alert('is too late');
+					return false;
+			}
+			
+
+		}
+		
+	</script>
+</head>
+<body>
+		<form id="f" action="fake.php">
+		
+		Year born: <input type="text" id="y"/><br/>
+		<input type="submit"/>
+		</form>
+		
+
+</body>
+</html>

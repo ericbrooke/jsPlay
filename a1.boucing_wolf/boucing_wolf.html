@@ -1,0 +1,129 @@
+<html>
+<head>
+
+	
+	<script type="text/javascript">
+	
+	//global variables
+	var ebtimer = null;
+	var bounce = 0;
+	
+	
+	function moveImage(theID){
+	
+		var w = document.body.clientWidth-200;
+		
+		//object detection
+		if(document.getElementById){
+	
+			var i = document.getElementById(theID);
+			}
+		
+		else if (document.all){
+		//microsoft
+			var i = document.all['theID'];
+			}
+		else if(document.layers){
+			var i =  document.layers['theID'];
+			}
+		else if(document.images){
+			var i = document.images['theID'];
+			}
+		
+		if((parseInt(i.style.left) < w) && (bounce == '0')){
+			i.style.left = parseInt(i.style.left) + 1 + "px";
+			if (parseInt(i.style.left) == w)
+				bounce = 1;
+		}
+				
+		else{
+			i.style.left = parseInt(i.style.left) + -1 + "px";
+			if(parseInt(i.style.left) == "10")
+				bounce = 0;
+			}
+	}//moveimage		
+			
+	window.onload=function(){
+		
+		//move function
+		document.getElementById('move').onclick=function(){
+		
+		//milli value check
+		
+		var p = parseInt(document.getElementById('milli').value);	
+				
+		if((p ==="") || isNaN(p))
+				{
+					alert('Please enter a number between 1 and 3000');
+					return false;
+				}
+				else{
+				
+					if(p <1){
+						alert('Please enter a number between 1 and 3000');
+						return false;
+						}
+					
+					else if (p >3000){
+						alert('Please enter a number between 1 and 3000');
+						return false;
+						}
+				}
+		
+			//the main function
+			
+			if(ebtimer == null){
+		
+				ebtimer = setInterval('moveImage("IM");', p);
+			
+			} //if
+
+		}// end of move
+		
+		//pause
+		document.getElementById('pause').onclick=function(){
+		
+			clearInterval(ebtimer);
+			ebtimer = null;
+					
+		}//end of pause
+		
+		//reset
+		document.getElementById('reset').onclick=function(){
+			clearInterval(ebtimer);
+			ebtimer = null;
+			document.getElementById('IM').style.left = "10px";
+			bounce = 0;
+			milli = 1;
+		}//end of reset
+		
+		//change image
+		document.getElementById('IM').onclick=function(){
+			
+			if (document.IM.src.indexOf("dog") !=-1) {
+				document.IM.src = "images/cat2.jpg";}
+			
+			else{ 
+				document.IM.src = "images/dog.jpg";}
+			
+		}//end of change images
+		
+	}//end of onload
+	
+	</script>
+	
+</head>
+<body>
+
+<img id="IM" name="IM" src="dog.jpg" style="position:absolute;top:10px;left:10px;">		
+
+<div style="position:absolute;top:400px;">
+	<input type="button" id="move" value="move"/>
+	<input type="button" id="pause" value="pause"/>
+	<input type="button" id="reset" value="reset"/>
+	<br />
+	Speed (1-3000 the higher the slower)<input type="text" id="milli" value="1" />
+	
+</div>
+</body>
+</html>
