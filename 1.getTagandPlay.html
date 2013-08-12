@@ -1,0 +1,80 @@
+<html>
+	<head>
+		<title> lab 1 </title>
+		
+		<script type="text/javascript">
+		<!--
+		
+			window.onload=function(){
+			
+				var p = new Array();
+				var h = new Array();
+				
+				var p = document.getElementsByTagName("p");
+				var h = document.getElementsByTagName("h1");
+			
+				for(var i= 0; i < p.length; i++){
+				
+					if (p[i].className.indexOf("golf") != -1){
+						p[i].style.color = "green";
+					}
+					
+					if (p[i].className.indexOf("news") != -1){
+						p[i].style.fontWeight = 'bold';
+					}
+					
+					if (p[i].className.indexOf('important') != -1){
+						p[i].style.textDecoration = 'underline';
+					}
+					
+					if (p[i].className.indexOf('invisible') !=-1){
+						p[i].style.display='none';
+					}
+					
+					if  (p[i].className.indexOf('right') !=-1){
+						p[i].style.textAlign='right';
+					}
+					
+
+					if (p[i].className.indexOf('toggle') !=-1){
+					
+						p[i].onclick=function(){
+					
+							if(this.style.fontStyle !='italic'){
+								this.style.fontStyle = 'italic';
+							}
+							
+							else{
+								this.style.fontStyle = 'normal';
+							}
+							
+						} // function onclick
+					}
+				} // for end
+				
+				for(var i= 0; i < h.length; i++){
+				
+					if (h[i].className.indexOf('headline') != -1){
+						h[i].style.border ='1px solid blue';
+					}
+			
+				} // for end
+				
+			}
+		// -->
+		</script>
+		
+	</head>
+
+	<body>
+		<h1 class="headline">Lab #1</h1>
+		
+		<p class="golf news">tiger woods in the news again!</p>
+		<p class="golf toggle">I shot 81 last week.</p>
+		<p class="invisible">What are you looking at?</p>
+		<p class="news">BC teachers may go on strike soon.</p>
+		<p class="important">Chickens like seed</p>
+		<p class="right">Are you a Republican?</p>
+	
+	</body>
+</html>

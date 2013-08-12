@@ -1,0 +1,97 @@
+<html>
+<head>
+	<script type="text/javascript">
+	
+		window.onload=function(){
+			
+			document.getElementById('formxyz').onsubmit=function(){
+			
+				//username
+				if(document.getElementById('u').value.length <3){
+					alert('username must be more than 3 characters');
+					document.getElementById('u-s').style.backgroundColor = 'yellow';
+					document.getElementById('u').select(); //highlight error text
+					return false;
+				}
+				
+				//email address
+				
+				var pattern = /^\w+[\+\.\w-]*@([\w-]+\.)*\w+[\w-]*\.([a-z]{2,4}|\d+)$/i;
+				
+				if(pattern.test(document.getElementById("e").value)== false)
+				{
+					alert('please type a valid email');
+					document.getElementById('e-s').style.backgroundColor = 'yellow';
+					document.getElementById('e').select(); //highlight error text
+					return false;
+				}
+				
+				//Year of birth
+				
+				var currentYear = new Date().getFullYear();
+				var possdate = document.getElementById('y').value;
+				
+				if((possdate ==="") || isNaN(possdate)){
+					alert('It helps to type a number for your year of birth');
+					document.getElementById('y-s').style.backgroundColor = 'yellow';
+					document.getElementById('y').select(); //highlight error text
+					return false;
+				}
+				
+				else{
+				
+					if(possdate <1890){
+						alert('If you were born than you have discovered how to live forever');
+						return false;
+						}
+					
+					else if (possdate >currentYear){
+						alert('You have not being born yet');
+						return false;
+						}
+				}
+				
+				//Shoe Size
+				
+				var shoeSize = document.getElementById('s').value;	
+				
+				if((shoeSize ==="") || isNaN(shoeSize))
+				{
+					alert('Your shoe size must be a number from 1-15');
+					document.getElementById('s-s').style.backgroundColor = 'yellow';
+					document.getElementById('s').select(); //highlight error text
+					return false;
+				}
+				else{
+				
+					if(shoeSize <1){
+						alert('Not even chickens have feet that small, please give a range between 1 -15');
+						return false;
+						}
+					
+					else if (shoeSize >15){
+						alert('Sorry we do not supply elephants with shoes, please give a range between 1 -15');
+						return false;
+						}
+				}
+			}//formxyz
+			
+		}//window end
+		
+		
+	</script>
+	
+</head>
+<body>
+
+<form action="fake.php" id="formxyz">
+	<span id="u-s">Username (3 char min):</span> <input id="u" type="text" /><br />
+	<span id="e-s">Email address:</span> <input id="e" type="text" /><br />
+	<span id="y-s">Year of Birth:</span> <input id="y" type="text" /><br />
+	<span id="s-s">Shoe Size:</span> <input id="s" type="text" /><br />
+	<span id="h-s">Hobbies:</span> <input id="h" type="text" /><br />
+	<input type="submit" />
+</form>
+
+</body
+</html>
