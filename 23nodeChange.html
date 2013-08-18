@@ -1,0 +1,75 @@
+<html>
+<head>
+
+<script type="text/javascript">
+
+function formSubmit(){
+	
+		var hs = document.body.getElementsByTagName("h1"); 
+		var ps = document.body.getElementsByTagName("p"); 
+		var tx = document.getElementById("tb").value;
+		var ta = document.getElementById("ta").value;
+		
+		if ((hs[1].childNodes[0].nodeValue == tx) && (ps[1].childNodes[0].nodeValue == ta)) {
+		
+		alert("text id identical dude");
+		
+		}
+		else{
+			//for the header
+			//hs[1].appendChild(document.body.textbox);
+			hs[1].childNodes[0].nodeValue = tx;
+			hs[2].childNodes[0].nodeValue = tx;
+		
+			//for the textarea
+			//ps[2].appendChild(document.body.textarea);
+			ps[1].childNodes[0].nodeValue = ta;
+			ps[2].childNodes[0].nodeValue = ta;
+		}
+	}
+	
+window.onload=function(){
+
+	var textbox = document.createElement("input");
+	var textarea = document.createElement("textarea");
+	var button = document.createElement("input");
+	var br = document.createElement("br");
+	var br2 = document.createElement("br");
+	
+	textbox.setAttribute("type","text");
+	textbox.setAttribute("id","tb");
+	textarea.setAttribute("rows","4");
+	textarea.setAttribute("cols","50");
+	textarea.setAttribute("id","ta");
+	button.setAttribute("type","submit");
+	button.setAttribute("value","go");
+	button.setAttribute("onclick","formSubmit()");
+	
+	document.body.appendChild(textbox);
+	document.body.appendChild(br);
+	document.body.appendChild(textarea);
+	document.body.appendChild(br2);
+	document.body.appendChild(button);
+	
+}
+
+</script>
+
+</head>
+<body>
+
+<h1>paragraph 1</h1>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non orci urna, eu tristique tellus. Praesent ac dui in nulla scelerisque porta. Curabitur cursus, magna vel cursus volutpat, ligula nulla feugiat tortor, at egestas risus nulla consequat augue. Mauris sit amet purus elit, at adipiscing velit. Maecenas vel orci ligula, at condimentum nisi. Proin dignissim tristique dolor, sed commodo purus viverra fringilla. Cras sit amet urna nec quam pellentesque sodales. Sed in velit sit amet nisi dignissim varius. In hac habitasse platea dictumst. Sed metus arcu, vestibulum ac euismod at, mattis ac nibh. Cras et augue eget tortor tristique interdum. Pellentesque luctus augue non nunc egestas faucibus. Nullam quis purus at nisi pretium dignissim quis ac ante. Etiam laoreet, leo at consectetur aliquet, turpis metus tristique diam, eget iaculis lectus ipsum vitae nibh. Donec convallis augue eget neque lobortis sed dictum lacus condimentum. </p>
+
+<h1>paragraph 2</h1>
+
+<p>Vivamus sollicitudin pharetra neque, et interdum est ultricies nec. Integer nisl nulla, aliquet et volutpat at, ullamcorper eget neque. In ultrices arcu in massa pretium malesuada. Maecenas auctor dapibus erat, tempus bibendum ante dignissim ut. Donec commodo elementum dictum. Mauris porttitor egestas purus, et suscipit neque mattis at. Nulla molestie commodo nisl, nec faucibus lacus vestibulum eu. Sed pretium pharetra sapien vel gravida. Nam ut neque massa, mollis hendrerit neque. Phasellus vitae lacus leo, eu pretium nibh. Sed porta, nisi varius sodales volutpat, ipsum justo tincidunt neque, laoreet rhoncus nulla nulla at arcu. Aenean vel tortor dolor, sit amet ultricies nulla. Fusce vel quam vel lacus venenatis tempor. Donec mollis tortor vel nisl ultrices ultrices. In quis urna in tortor facilisis placerat a pulvinar nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+
+<h1>paragraph 3</h1>
+
+<p>Vivamus gravida venenatis sem, id tristique velit feugiat ut. Curabitur bibendum, velit vestibulum sagittis auctor, ipsum urna vulputate risus, ac adipiscing justo nunc in dolor. Integer consequat velit vitae quam tempus et scelerisque ligula ullamcorper. Vestibulum venenatis facilisis tellus eget placerat. Ut neque leo, tincidunt nec semper sit amet, dapibus sit amet sapien. Nunc tincidunt tortor at tellus sodales sed posuere mauris viverra. Pellentesque urna est, porttitor sed consequat id, convallis a nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas ut risus tellus. Nulla iaculis, ipsum condimentum ultricies tempus, tortor tellus venenatis enim, id volutpat turpis orci a risus. Donec id risus tellus, id porta neque. </p>
+
+</body>
+
+</html>

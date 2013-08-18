@@ -1,0 +1,62 @@
+
+
+<html>
+<head>
+	<script type="text/javascript">
+
+
+		window.onload = function(){
+
+		var request = new XMLHttpRequest();
+		var request2 = new XMLHttpRequest();
+		
+		document.getElementById("b").onclick=function(){
+
+				var time = new Date().getTime(); //add no cache function
+				
+				var queryString = "?time=" + time;
+				var queryString = encodeURI(queryString);
+
+				// get name
+				var team = "nhl/" + document.getElementById('t').value +"-team.txt";
+				request.open('GET',team + queryString, true);
+				request.onreadystatechange = function() {
+					if (request.readyState == 4) {
+						document.getElementById('team').firstChild.nodeValue  = request.responseText;
+					}//if
+				}//readyState
+				
+				request.send(null);
+				
+				// get arena
+				var arena = "nhl/" + document.getElementById('t').value +"-arena.txt";
+				request2.open('GET',arena + queryString, true);	
+				request2.onreadystatechange = function() {
+					if (request2.readyState == 4) {
+						document.getElementById('arena').firstChild.nodeValue  = request2.responseText;
+					}//if
+					
+				}//readyState
+				request2.send(null);
+				
+				// get logo
+				var logo = "images/" + document.getElementById('t').value +".png";
+				document.getElementById('logo').appendChild(document.createElement('img')).setAttribute('src', logo);
+		}//onclick
+
+			
+	} //onload
+	</script>
+</head>
+<body>
+	<div>
+	<p id ="logo"> </p>
+	<p id ="team"> </p>
+	<p id ="arena"> </p>
+	</div>
+	<div>
+		Team: <input type="textbox" name="team" id="t"><br />
+		<input type="submit" value="Submit" id="b">
+	</div>
+</body>
+</html>

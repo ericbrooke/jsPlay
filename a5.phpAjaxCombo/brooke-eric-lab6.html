@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<script type="text/javascript">
+	
+		var request = new XMLHttpRequest();
+		
+		window.onload=function(){
+			
+			
+			document.getElementById("b").onclick=function(){
+			
+				
+				var time = new Date().getTime();
+				var qs = "brooke-eric-lab6.php" 
+				qs = qs+"?city=" + document.getElementById("city").value + "&nocache=" + time ;
+				qs = encodeURI(qs);
+				
+				request.open("GET",qs, true);
+				request.onreadystatechange=function(){
+					if(request.readyState == 4) {
+					
+						if(request.status == 200) {
+							document.getElementById("nn").firstChild.nodeValue = request.responseText;
+						} //if
+						else {
+							alert(request.status);
+						} //else
+						
+					} // if
+				}//onreadystate
+				request.send(null);
+			} //onclick
+			
+		}//onload
+	</script>
+</head>
+<body>
+	<div>
+		<p id="team"> </p>
+		<p id= "nn"> </p>
+	</div>
+	<div>
+	Team: <input type="textbox" id="city" name="city"/>
+	<input type="button" value="submit" id="b"/>
+	</div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<html>
+<head>
+	<style type="text/css">
+	img {
+		display: block;
+		float: left;
+		border: 1px solid #333;
+		margin: 10px;
+	}
+	.reduce {
+		width: 100px;
+		height: 100px;
+		margin: 60px;
+	}
+	</style>
+<script type="text/javascript">
+
+window.onload = function() {	
+		var imageDiv = document.getElementById("allpictures");
+		var imageBranch = imageDiv.getElementsByTagName("img");
+		
+		for (var i=0; i < imageBranch.length; i++) {
+			imageBranch[i].onclick = useAjax;
+		} 		
+}
+	
+function useAjax(){
+		
+		var request = new XMLHttpRequest();	
+		var x = this.id;
+		var fp = "txt/"+x+".txt";
+		this.parentNode.insertBefore(this, this.parentNode.firstChild);
+					
+		request.open("GET",fp,true);
+		request.onreadystatechange = function(){
+				if(request.readyState == 4){
+					var sound = request.responseText;
+					document.getElementById("noise").firstChild.nodeValue = sound;
+					document.getElementById(x).setAttribute("alt",sound);
+					document.getElementById(x).className = 'reduce';
+					setTimeout("document.getElementsByClassName('reduce').className = null", 3000);
+					window.alert(document.getElementById(x).getAttribute('alt'));
+				}//if
+			}//readystate	
+			
+			request.send(null);
+			
+} //useAjax
+
+
+
+	
+</script>
+
+</head>
+<body>
+	<div id="allpictures">
+		<img src="images/bird.jpg" width="254" height="198" id="bird" alt="bird">
+		<img src="images/cat.jpg" width="245" height="206" id="cat" alt="cat">
+		<img src="images/dog.jpg" width="284" height="177" id="dog" alt="dog">
+		<img src="images/fish.jpg" width="243" height="208" id="fish" alt="fish">
+	</div>
+	<p id="noise">chicken</p>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<html> 
+<head> 
+<title>Favorite 10 Pix</title> 
+<script type="text/javascript">
+
+function addOnClickHandlers() {
+	var pixDiv = document.getElementById("allpictures"); 
+	var cdImages = pixDiv.getElementsByTagName("img"); 
+	
+	for (var i=0; i < cdImages.length; i++) {
+		cdImages[i].onclick = changeParent; 
+	}
+}
+
+function changeParent(){
+	var pictureDiv = document.getElementById("myPictureDivs"); 
+	var pictureDivChildren = pictureDiv.getElementsByTagName("div"); 
+	var numberOfPictureDivs = pictureDivChildren.length;
+	
+	for(var i = 0; i < numberOfPictureDivs; i++){
+	
+		if(this.parentNode.id == pictureDivChildren[i].id){ 
+			if((i + 1) >= numberOfPictureDivs){
+				pictureDivChildren[0].appendChild(this);
+				break;
+			}
+			else{
+				pictureDivChildren[i+1].appendChild(this);
+				break; 
+			}
+		}	
+	}
+} 
+
+</script>
+
+<style type="text/css"> img{height:100px;}</style>
+
+</head>
+<body onLoad="addOnClickHandlers();"> 
+	<div id="myPictureDivs">
+		<div id="allpictures">
+			<h1> All pictures </h1><br><br><br>
+			<img class="photo" src="images/a.jpg" /> 
+			<img class="photo" src="images/b.jpg" /> 
+			<img class="photo" src="images/c.jpg" />
+			<img class="photo" src="images/d.jpg" /> 
+			<img class="photo" src="images/e.png" /> 
+			<img class="photo" src="images/f.jpg" />
+			<img class="photo" src="images/h.jpg" /> 
+			<img class="photo" src="images/i.jpg" /> 
+			<img class="photo" src="images/j.jpg" />
+		</div>
+		<div id="lovepictures">
+			<hr><h1> Pictures I love </h1><br><br><br> 
+		</div>
+		<div id="hatepictures">
+		<hr><h1> Pictures I hate </h1><br><br><br>
+		</div> 
+	</div>
+</body>
+</html>
